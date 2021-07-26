@@ -30,13 +30,18 @@ namespace PlatformerMVC.Controllers
         {
             _view = player;
             _spriteAnimator = animator;
-            _spriteAnimator.StartAnimation(_view._spriteRenderer, AnimState.Run, true, _animationSpeed);
+            _spriteAnimator.StartAnimation(_view._spriteRenderer, AnimState.Idle, true, _animationSpeed);
         }
 
         private void MoveTowards()
         {
-            _view.transform.position += Vector3.right * Time.deltaTime * _walkSpeed * (_xAxisInput < 0 ? -1 : 1);
+            _view.transform.position += Vector3.right * (Time.deltaTime * _walkSpeed * (_xAxisInput < 0 ? -1 : 1));
             _view.transform.localScale = _xAxisInput < 0 ? _leftScale : _rightScale;
+        }
+
+        public bool IsGrounded()
+        {
+            return _view.transform.position.y <= _groundLevel + float.Epsilon && _yVelocity <= 0;
         }
         
         public void Update()
@@ -46,9 +51,37 @@ namespace PlatformerMVC.Controllers
             _isJump = Input.GetAxis(NamesManager.INPUT_VERTICAL) > 0;
             _isMoving = Mathf.Abs(_xAxisInput) > _movingThreshold;
             
+
             if (_isMoving)
             {
                 MoveTowards();
+            }
+
+            if (IsGrounded())
+            {
+               
+                _spriteAnimator.StartAnimation(_view._spriteRenderer, _isMoving ? AnimState.Run : AnimState.Idle,
+                    true, _animationSpeed);
+
+                if (_isJump && _yVelocity <= 0)
+                {
+                    _yVelocity = _jumpSpeed;
+                }
+                else if(_yVelocity < 0)
+                {
+                    _yVelocity = float.Epsilon;
+                    _view.transform.position = _view.transform.position.Change(y: _groundLevel);
+                }
+            }
+            else
+            {
+                if (Mathf.Abs(_yVelocity) > _jumpThreshold)
+                {
+                    _spriteAnimator.StartAnimation(_view._spriteRenderer,AnimState.Jump,true, _animationSpeed);
+                }
+
+                _yVelocity += _g * Time.deltaTime;
+                _view.transform.position += Vector3.up * (Time.deltaTime * _yVelocity);
             }
         }
     }
