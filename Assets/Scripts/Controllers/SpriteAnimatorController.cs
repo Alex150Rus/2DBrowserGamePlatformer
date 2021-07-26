@@ -12,7 +12,7 @@ namespace PlatformerMVC.Controllers
             public AnimState Track;
             public List<Sprite> Sprites;
             public bool Loop;
-            public float Speed = 10;
+            public float Speed = 15;
             public float Counter = 0;
             public bool Sleep;
 
