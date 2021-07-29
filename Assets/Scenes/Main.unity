@@ -520,7 +520,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300230122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.75, y: -1.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1986915806}
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transform: {fileID: 2073928958}
   _spriteRenderer: {fileID: 2073928957}
-  _collider: {fileID: 0}
+  _collider: {fileID: 2073928960}
   _rigidbody: {fileID: 2073928961}
 --- !u!70 &2073928960
 CapsuleCollider2D:
