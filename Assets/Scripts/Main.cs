@@ -15,7 +15,7 @@ namespace PlatformerMVC
 
         private SpriteAnimatorController _playerAnimator;
         private PlayerMovePhysicsController _playerMoveController;
-        private MuzzleController _muzzleController;
+        private MuzzleAimController _muzzleAimController;
         private CameraController _cameraController;
 
         private void Awake()
@@ -23,14 +23,14 @@ namespace PlatformerMVC
             _playerConfig = Resources.Load<SpriteAnimatorConfig>("PlayerAnimCfg");
             _playerAnimator = new SpriteAnimatorController(_playerConfig);
             _playerMoveController = new PlayerMovePhysicsController(_playerView, _playerAnimator);
-            _muzzleController = new MuzzleController(_muzzleView, _playerView);
+            _muzzleAimController = new MuzzleAimController(_muzzleView, _playerView);
             _cameraController = new CameraController(_playerView.transform, Camera.main.transform);
         }
 
         void Update()
         {
             _playerMoveController.Update();
-            _muzzleController.Update();
+            _muzzleAimController.Update();
             _cameraController.Update();
         }
 
