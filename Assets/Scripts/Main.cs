@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using PlatformerMVC.Config;
 using PlatformerMVC.Controllers;
 using PlatformerMVC.View;
@@ -17,6 +18,7 @@ namespace PlatformerMVC
         private PlayerMovePhysicsController _playerMoveController;
         private MuzzleAimController _muzzleAimController;
         private CameraController _cameraController;
+        private BulletEmitterController _bulletEmitterController;
 
         private void Awake()
         {
@@ -25,12 +27,14 @@ namespace PlatformerMVC
             _playerMoveController = new PlayerMovePhysicsController(_playerView, _playerAnimator);
             _muzzleAimController = new MuzzleAimController(_muzzleView, _playerView);
             _cameraController = new CameraController(_playerView.transform, Camera.main.transform);
+            _bulletEmitterController = new BulletEmitterController(_muzzleView.bullets,_muzzleView.EmitterTransform);
         }
 
         void Update()
         {
             _playerMoveController.Update();
             _muzzleAimController.Update();
+            _bulletEmitterController.Update();
             _cameraController.Update();
         }
 
