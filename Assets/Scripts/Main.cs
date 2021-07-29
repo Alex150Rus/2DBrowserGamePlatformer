@@ -11,7 +11,7 @@ namespace PlatformerMVC
         [SerializeField] private SpriteAnimatorConfig _playerConfig;
         [SerializeField] private int _animationSpeed = 15;
         [SerializeField] private LevelObjectView _playerView;
-        [SerializeField] private LevelObjectView _muzzleView;
+        [SerializeField] private CannonView _muzzleView;
 
         private SpriteAnimatorController _playerAnimator;
         private PlayerMovePhysicsController _playerMoveController;

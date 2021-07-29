@@ -6,10 +6,10 @@ namespace PlatformerMVC.Controllers
 {
     public class MuzzleController
     {
-        private LevelObjectView _muzzle;
+        private CannonView _muzzle;
         private LevelObjectView _player;
 
-        public MuzzleController(LevelObjectView muzzle, LevelObjectView player)
+        public MuzzleController(CannonView muzzle, LevelObjectView player)
         {
             _muzzle = muzzle;
             _player = player;
