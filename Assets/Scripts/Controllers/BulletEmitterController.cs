@@ -15,7 +15,7 @@ namespace PlatformerMVC.Controllers
         private const float _delay = 1;
         private const float _startSpeed = 9;
 
-        public BulletEmitterController(List<LevelObjectView> bulletViews, Transform transform)
+        public BulletEmitterController(List<BulletView> bulletViews, Transform transform)
         {
             _transform = transform;
             foreach (var bulletView in bulletViews)
@@ -28,6 +28,7 @@ namespace PlatformerMVC.Controllers
         {
             if (_timeTillNextBullet > 0)
             {
+                _bullets[_currentIndex].ActiveTrailRenderers(false);
                 _bullets[_currentIndex].Active(false);
                 _timeTillNextBullet -= Time.deltaTime;
             }

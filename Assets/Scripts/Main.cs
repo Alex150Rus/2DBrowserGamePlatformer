@@ -34,12 +34,13 @@ namespace PlatformerMVC
         {
             _playerMoveController.Update();
             _muzzleAimController.Update();
-            _bulletEmitterController.Update();
+            
             _cameraController.Update();
         }
 
         private void FixedUpdate()
         {
+            _bulletEmitterController.Update();
         }
     }
 }

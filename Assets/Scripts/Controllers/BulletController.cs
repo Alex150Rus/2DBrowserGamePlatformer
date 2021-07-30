@@ -7,12 +7,13 @@ namespace PlatformerMVC.Controllers
     {
 
         private Vector3 _velocity;
-        private LevelObjectView _view;
+        public BulletView _view;
         
-        public BulletController(LevelObjectView bulletView)
+        public BulletController(BulletView bulletView)
         {
             _view = bulletView;
             Active(false);
+            ActiveTrailRenderers(false);
         }
 
         public void Throw(Vector3 position, Vector3 velocity)
@@ -36,6 +37,11 @@ namespace PlatformerMVC.Controllers
         public void Active(bool val)
         {
             _view.gameObject.SetActive(val);
+        }
+
+        public void ActiveTrailRenderers(bool val)
+        {
+            _view._trailRenderers.ForEach(tr => tr.emitting = val);
         }
     }
 }
