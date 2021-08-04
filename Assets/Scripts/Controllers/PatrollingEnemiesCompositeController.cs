@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using PlatformerMVC.Model;
-using UnityEngine.PlayerLoop;
 
 namespace PlatformerMVC.Controllers
 {
     public class PatrollingEnemiesCompositeController
     {
-        private List<Main.PatrollingEnemy> _patrollingEnemies;
+        private List<PatrollingEnemy> _patrollingEnemies;
         private List<SimplePatrolAIController> _simplePatrolAIControllers;
         
-        public PatrollingEnemiesCompositeController(List<Main.PatrollingEnemy> patrollingEnemies)
+        public PatrollingEnemiesCompositeController(List<PatrollingEnemy> patrollingEnemies)
         {
             _patrollingEnemies = patrollingEnemies;
             Init();

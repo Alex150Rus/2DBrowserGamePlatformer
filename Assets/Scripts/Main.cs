@@ -14,14 +14,12 @@ namespace PlatformerMVC
         [SerializeField] private LevelObjectView _playerView;
         [SerializeField] private CannonView _muzzleView;
 
-        [SerializeField] private List<PatrollingEnemy> _patrollingEnemies;
-
         private SpriteAnimatorController _playerAnimator;
         private PlayerMovePhysicsController _playerMoveController;
         private MuzzleAimController _muzzleAimController;
         private CameraController _cameraController;
         private BulletEmitterController _bulletEmitterController;
-        private PatrollingEnemiesCompositeController _patrollingEnemiesCompositeController;
+        private EnemiesConfigurator _enemiesConfigurator;
 
         private void Awake()
         {
@@ -31,7 +29,8 @@ namespace PlatformerMVC
             _muzzleAimController = new MuzzleAimController(_muzzleView, _playerView);
             _cameraController = new CameraController(_playerView.transform, Camera.main.transform);
             _bulletEmitterController = new BulletEmitterController(_muzzleView.bullets,_muzzleView.EmitterTransform);
-            _patrollingEnemiesCompositeController = new PatrollingEnemiesCompositeController(_patrollingEnemies);
+            _enemiesConfigurator = GetComponent<EnemiesConfigurator>();
+            _enemiesConfigurator.Init();
         }
 
         void Update()
@@ -45,14 +44,9 @@ namespace PlatformerMVC
         private void FixedUpdate()
         {
             _bulletEmitterController.Update();
-            _patrollingEnemiesCompositeController.FixedUpdate();
+            _enemiesConfigurator.Run();
         }
 
-        [Serializable]
-        public struct PatrollingEnemy
-        {
-            public AIConfig confif;
-            public LevelObjectView patrollingEnemyView;
-        }
+        
     }
 }
