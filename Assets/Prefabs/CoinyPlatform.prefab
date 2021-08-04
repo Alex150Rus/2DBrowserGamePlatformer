@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2223796775139723369}
   - component: {fileID: 2223796775139723374}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2223796776511567336}
   - component: {fileID: 2223796776511567339}
   - component: {fileID: 2223796776511567338}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CoinyPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2223796777147611878}
   - component: {fileID: 2223796777147611879}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
