@@ -26,7 +26,7 @@ namespace PlatformerMVC
     [Serializable]
     public struct PatrollingEnemy
     {
-        public AIConfig confif;
+        public AIConfig config;
         public LevelObjectView patrollingEnemyView;
     }
     

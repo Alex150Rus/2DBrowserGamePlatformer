@@ -21,7 +21,7 @@ namespace PlatformerMVC.Controllers
             {
                 _simplePatrolAIControllers.Add(
                     new SimplePatrolAIController(_patrollingEnemies[i].patrollingEnemyView,
-                        new SimplePatrolAIModel(_patrollingEnemies[i].confif)));
+                        new SimplePatrolAIModel(_patrollingEnemies[i].config)));
             }
         }
 
