@@ -47,6 +47,9 @@ namespace PlatformerMVC
             _enemiesConfigurator.Run();
         }
 
-        
+        private void OnDestroy()
+        {
+            _enemiesConfigurator.Destroy();
+        }
     }
 }

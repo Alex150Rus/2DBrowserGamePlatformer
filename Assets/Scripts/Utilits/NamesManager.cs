@@ -4,5 +4,6 @@ namespace PlatformerMVC.Utilits
     {
         public const string INPUT_HORIZONTAL = "Horizontal";
         public const string INPUT_VERTICAL = "Vertical";
+        public const string PLAYER_TAG = "Player";
     }
 }

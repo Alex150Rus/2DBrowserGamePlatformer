@@ -8,8 +8,6 @@ namespace PlatformerMVC.View
         public event EventHandler<GameObject> TriggerEnter;
         public event EventHandler<GameObject> TriggerExit;
 
-        #region Unity methods
-
         private void OnTriggerEnter2D(Collider2D other)
         {
             TriggerEnter?.Invoke(this, other.gameObject);
@@ -19,8 +17,5 @@ namespace PlatformerMVC.View
         {
             TriggerExit?.Invoke(this, other.gameObject);
         }
-
-        #endregion
-
     }
 }
