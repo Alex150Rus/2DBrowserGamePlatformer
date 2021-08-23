@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 8086807621572949939}
   - component: {fileID: -8741786087853454403}
   m_Layer: 0
-  m_Name: Platform
+  m_Name: Platform9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
