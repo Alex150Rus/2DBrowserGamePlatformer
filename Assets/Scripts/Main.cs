@@ -19,6 +19,7 @@ namespace PlatformerMVC
         private MuzzleAimController _muzzleAimController;
         private CameraController _cameraController;
         private BulletEmitterController _bulletEmitterController;
+        private EnemiesConfigurator _enemiesConfigurator;
 
         private void Awake()
         {
@@ -28,6 +29,8 @@ namespace PlatformerMVC
             _muzzleAimController = new MuzzleAimController(_muzzleView, _playerView);
             _cameraController = new CameraController(_playerView.transform, Camera.main.transform);
             _bulletEmitterController = new BulletEmitterController(_muzzleView.bullets,_muzzleView.EmitterTransform);
+            _enemiesConfigurator = GetComponent<EnemiesConfigurator>();
+            _enemiesConfigurator.Init();
         }
 
         void Update()
@@ -41,6 +44,12 @@ namespace PlatformerMVC
         private void FixedUpdate()
         {
             _bulletEmitterController.Update();
+            _enemiesConfigurator.Run();
+        }
+
+        private void OnDestroy()
+        {
+            _enemiesConfigurator.Destroy();
         }
     }
 }
