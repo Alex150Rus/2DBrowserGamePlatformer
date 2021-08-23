@@ -13,6 +13,7 @@ namespace PlatformerMVC
         [SerializeField] private int _animationSpeed = 15;
         [SerializeField] private LevelObjectView _playerView;
         [SerializeField] private CannonView _muzzleView;
+        [SerializeField] private GeneratorLevelView _generatorLevelView;
 
         private SpriteAnimatorController _playerAnimator;
         private PlayerMovePhysicsController _playerMoveController;
@@ -20,6 +21,7 @@ namespace PlatformerMVC
         private CameraController _cameraController;
         private BulletEmitterController _bulletEmitterController;
         private EnemiesConfigurator _enemiesConfigurator;
+        private GeneratorController _generatorController;
 
         private void Awake()
         {
@@ -31,6 +33,9 @@ namespace PlatformerMVC
             _bulletEmitterController = new BulletEmitterController(_muzzleView.bullets,_muzzleView.EmitterTransform);
             _enemiesConfigurator = GetComponent<EnemiesConfigurator>();
             _enemiesConfigurator.Init();
+            _generatorController = new GeneratorController(_generatorLevelView);
+            
+            _generatorController.Init();
         }
 
         void Update()
